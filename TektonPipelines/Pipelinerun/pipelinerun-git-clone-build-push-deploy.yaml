@@ -3,7 +3,7 @@ kind: PipelineRun
 metadata:
   generateName: pipelinerun-git-clone-build-push-deploy-
 spec:
-  serviceAccountName: tekton-pipeline
+  serviceAccountName: pipeline
   pipelineRef:
     name: pipeline-git-clone-build-push-deploy
   params:
@@ -22,6 +22,9 @@ spec:
   - name: workspace
     persistentvolumeclaim:
       claimName: shared-workspace
+  - name: docker-cred
+    secret:
+      secretName: docker-cred
   - name: empty-dir
     emptyDir: {}
       
