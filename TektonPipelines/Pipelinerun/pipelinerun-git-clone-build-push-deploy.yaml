@@ -8,13 +8,13 @@ spec:
     name: pipeline-git-clone-build-push-deploy
   params:
   - name: repo-url
-    value: https://github.com/brightzheng100/spring-boot-docker
+    value: https://github.com/koustavsaha/spring-boot-docker/
   - name: tag-name
     value: master
   - name: image-full-path-with-tag
     value: image-registry.openshift-image-registry.svc:5000/tekton-demo/spring-boot-docker:v1.1.0
   - name: deployment-manifest
-    value: https://raw.githubusercontent.com/brightzheng100/tekton-pipeline-example/master/manifests/deployment.yaml
+    value: https://raw.githubusercontent.com/koustavsaha/spring-boot-docker/master/TektonPipelines/Resources/deployment.yaml
   workspaces:
   - name: maven-settings
     configmap:
