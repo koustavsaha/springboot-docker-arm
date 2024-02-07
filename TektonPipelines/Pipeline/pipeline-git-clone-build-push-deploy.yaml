@@ -20,7 +20,7 @@ spec:
     description: The git tag to clone.
   - name: image-full-path-with-tag
     type: string
-    description: The image full path to host the built image, with version tag, e.g. image-registry.openshift-image-registry.svc:5000/tekton-pipelines/spring-boot-docker:v1.0.0.
+    description: The image full path to host the built image, with version tag, e.g. "docker.io/koustavs18/nodejs-app:latest"
   - name: deployment-manifest
     type: string
     description: The manifest file for deployment.
