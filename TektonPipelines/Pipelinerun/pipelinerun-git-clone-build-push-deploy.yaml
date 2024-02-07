@@ -3,7 +3,8 @@ kind: PipelineRun
 metadata:
   generateName: pipelinerun-git-clone-build-push-deploy-
 spec:
-  serviceAccountName: pipeline
+  taskRunTemplate:
+    serviceAccountName: pipeline
   pipelineRef:
     name: pipeline-git-clone-build-push-deploy
   params:
