@@ -5,4 +5,4 @@ kubectl create cm maven-settings --from-file=settings.xml=Resources/maven-settin
 
 Use Pipeline SA d
 Don't use default branchg
-s
+ss
