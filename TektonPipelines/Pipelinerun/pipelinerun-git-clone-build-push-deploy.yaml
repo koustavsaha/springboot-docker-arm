@@ -24,7 +24,7 @@ spec:
       claimName: shared-workspace
   - name: docker-cred
     secret:
-      secretName: docker-cred
+      secretName: docker-secret
   - name: empty-dir
     emptyDir: {}
       
