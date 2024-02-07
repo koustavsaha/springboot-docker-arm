@@ -12,7 +12,7 @@ spec:
   - name: tag-name
     value: master
   - name: image-full-path-with-tag
-    value: "docker.io/koustavs18/springboot-app"
+    value: docker.io/koustavs18/springboot-app:latest
   - name: deployment-manifest
     value: https://raw.githubusercontent.com/koustavsaha/spring-boot-docker/master/TektonPipelines/Resources/deployment.yaml
   workspaces:
