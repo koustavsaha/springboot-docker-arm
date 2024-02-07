@@ -98,7 +98,7 @@ spec:
     workspaces:
       - name: source
         workspace: workspace
-      - name: docker-cred
+      - name: dockerconfig
         workspace: docker-cred
 
   # 4. Task - kubectl deploy
