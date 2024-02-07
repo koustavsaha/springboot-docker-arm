@@ -30,7 +30,7 @@ spec:
   - name: workspace
   - name: maven-settings
   - name: empty-dir
-  - name: docker-cred
+  - name: quay-cred
   
   # Taksks
   tasks:
@@ -99,7 +99,7 @@ spec:
       - name: source
         workspace: workspace
       - name: dockerconfig
-        workspace: docker-cred
+        workspace: quay-cred
 
   # 4. Task - kubectl deploy
   - name: deploy
