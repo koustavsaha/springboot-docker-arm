@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: image-registry.openshift-image-registry.svc:5000/tekton-demo/spring-boot-docker:v1.1.0
+          image: quay.io/rh-ee-ksaha/test:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
