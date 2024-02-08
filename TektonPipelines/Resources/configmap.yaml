@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: maven-settings
-  namespace: default
-data:
-  file-path: maven-settings.xml
