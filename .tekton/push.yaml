@@ -7,10 +7,12 @@ metadata:
     pipelinesascode.tekton.dev/on-event: pull_request
     pipelinesascode.tekton.dev/on-target-branch: master
     pipelinesascode.tekton.dev/pipeline: "https://raw.githubusercontent.com/koustavsaha/spring-boot-docker/master/TektonPipelines/Pipeline/pipeline-git-clone-build-push-deploy.yaml"
-  generateName: pipelinerun-git-clone-build-push-deploy-
+  generateName: pipelinerun-git-clone-build-push-deploy-f
 spec:
   taskRunTemplate:
     serviceAccountName: pipeline
+  pipelineRef:
+    name: pipeline-git-clone-build-push-deploy
   params:
     - name: repo-url
       value: "{{ repo_url }}"
@@ -22,7 +24,7 @@ spec:
       value: "https://raw.githubusercontent.com/koustavsaha/spring-boot-docker/master/TektonPipelines/Resources/deployment.yaml"
   workspaces:
     - name: maven-settings
-      configmap:
+      configMap:
         name: maven-settings
     - name: workspace
       persistentVolumeClaim:
@@ -32,5 +34,4 @@ spec:
         secretName: quay-secret
     - name: empty-dir
       emptyDir: {}
-  pipelineRef:
-    name: pipeline-git-clone-build-push-deploy
+  
