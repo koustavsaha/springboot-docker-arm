@@ -16,7 +16,7 @@ $ mvn spring-boot:run
 ### By Gradle
 
 ```sh
-# Package
+# Packagea
 $ ./gradlew build
 
 # Build Docker image
