@@ -26,7 +26,7 @@ spec:
       - fetching a git repository as the source
       - using buildah to build a Docker image by Dockerfile
       - pusing the built Docker image to a desired repository
-      - deploying it to Kubernetes cluster
+      - deploying it to Kubernetes clusters
     
     # Parameters
     params:
