@@ -123,6 +123,7 @@ spec:
         value: |
           kubectl apply -f $(params.deployment-manifest)
           echo "----------"
+          kubectl patch deployment spring-boot-docker -p '{"spec":{"template":{"spec":{"containers":[{"name":"myapp","image":"$(params.image-full-path-with-tag)"}]}}}}'
           kubectl get deployment
     workspaces:
       - name: kubeconfig-dir
