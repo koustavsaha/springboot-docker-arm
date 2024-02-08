@@ -24,7 +24,7 @@ spec:
       value: "https://raw.githubusercontent.com/koustavsaha/spring-boot-docker/master/TektonPipelines/Resources/deployment.yaml"
   workspaces:
     - name: maven-settings
-      configmap:
+      configMap:
         name: maven-settings
     - name: workspace
       persistentVolumeClaim:
