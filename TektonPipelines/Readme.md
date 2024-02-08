@@ -6,6 +6,6 @@ kubectl create cm maven-settings --from-file=settings.xml=Resources/maven-settin
 # A dedicated sa for the pipeline
 kubectl create sa tekton-pipeline 
 
-# Run this if it's on OpenShift
+# Run this if it's on OpenShifts
 oc adm policy add-role-to-user edit -z tekton-pipeline 
 oc adm policy add-scc-to-user privileged -z tekton-pipeline 
