@@ -5,18 +5,29 @@ metadata:
 spec:
   serviceAccountName: pipeline
   triggers:
-    - name: github-listener
-    # - name: github-listener
-    #   interceptors:
-    #     - github:
-    #         secretRef:
-    #           secretName: github-secret
-    #           secretKey: secretToken
-    #         eventTypes:
-    #           - pull_request
-    #     - cel:
-    #         filter: "body.action in ['opened', 'synchronize', 'reopened']"
+    - name: github-listner-push
+      interceptors:
+        - ref:
+            name: "github"
+            kind: ClusterInterceptor
+            apiVersion: triggers.tekton.dev
+          params:
+          - name: "eventTypes"
+            value: ["push"]    
       bindings:
-        - ref: tekton-trigger-binding
+        - ref: tekton-trigger-binding-push
       template:
-          ref: tekton-trigger-template
+          ref: tekton-trigger-template-push
+    - name: github-listener-pull
+      interceptors:
+        - ref:
+            name: "github"
+            kind: ClusterInterceptor
+            apiVersion: triggers.tekton.dev
+          params:
+          - name: "eventTypes"
+            value: ["pull_request"]
+      bindings:
+        - ref: tekton-trigger-binding-pull
+      template:
+          ref: tekton-trigger-template-pull
