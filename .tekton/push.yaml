@@ -11,8 +11,7 @@ metadata:
 spec:
   taskRunTemplate:
     serviceAccountName: pipeline
-  pipelineRef:
-    name: pipeline-git-clone-build-push-deploy
+
   params:
   - name: repo-url
     value: {{ repo_url }}
@@ -22,6 +21,7 @@ spec:
     value: quay.io/rh-ee-ksaha/test:{{source_branch}}
   - name: deployment-manifest
     value: https://raw.githubusercontent.com/koustavsaha/spring-boot-docker/master/TektonPipelines/Resources/deployment.yaml
+
   workspaces:
   - name: maven-settings
     configmap:
@@ -34,3 +34,6 @@ spec:
       secretName: quay-secret
   - name: empty-dir
     emptyDir: {}
+    
+  pipelineRef:
+    name: pipeline-git-clone-build-push-deploy
