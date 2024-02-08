@@ -19,7 +19,7 @@ spec:
   - name: tag-name
     value: {{source_branch}}
   - name: image-full-path-with-tag
-    value: quay.io/rh-ee-ksaha/test:{{revision}}
+    value: quay.io/rh-ee-ksaha/test:{{source_branch}}
   - name: deployment-manifest
     value: https://raw.githubusercontent.com/koustavsaha/spring-boot-docker/master/TektonPipelines/Resources/deployment.yaml
   workspaces:
