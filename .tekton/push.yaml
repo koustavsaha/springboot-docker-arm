@@ -5,7 +5,7 @@ metadata:
     pipelinesascode.tekton.dev/target-namespace: "koustav-demo"
     pipelinesascode.tekton.dev/max-keep-runs: "5"
     pipelinesascode.tekton.dev/on-event: pull_request
-    pipelinesascode.tekton.dev/on-target-branch: main
+    pipelinesascode.tekton.dev/on-target-branch: master
     pipelinesascode.tekton.dev/pipeline: "https://raw.githubusercontent.com/koustavsaha/spring-boot-docker/master/TektonPipelines/Pipeline/pipeline-git-clone-build-push-deploy.yaml"
   generateName: pipelinerun-git-clone-build-push-deploy-
 spec:
@@ -19,7 +19,7 @@ spec:
   - name: tag-name
     value: {{source_branch}}
   - name: image-full-path-with-tag
-    value: quay.io/rh-ee-ksaha/test:{{revision}}
+    value: quay.io/rh-ee-ksaha/test:{{source_branch}}
   - name: deployment-manifest
     value: https://raw.githubusercontent.com/koustavsaha/spring-boot-docker/master/TektonPipelines/Resources/deployment.yaml
   workspaces:
