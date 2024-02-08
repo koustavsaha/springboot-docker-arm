@@ -13,24 +13,24 @@ spec:
     serviceAccountName: pipeline
   pipelineRef:
     name: pipeline-git-clone-build-push-deploy
-    params:
-    - name: repo-url
-      value: {{ repo_url }}
-    - name: tag-name
-      value: {{source_branch}}
-    - name: image-full-path-with-tag
-      value: quay.io/rh-ee-ksaha/test:{{source_branch}}
-    - name: deployment-manifest
-      value: https://raw.githubusercontent.com/koustavsaha/spring-boot-docker/master/TektonPipelines/Resources/deployment.yaml
-    workspaces:
-    - name: maven-settings
-      configmap:
-        name: maven-settings
-    - name: workspace
-      persistentvolumeclaim:
-        claimName: shared-workspace
-    - name: quay-cred
-      secret:
-        secretName: quay-secret
-    - name: empty-dir
-      emptyDir: {}
+  params:
+  - name: repo-url
+    value: {{ repo_url }}
+  - name: tag-name
+    value: {{source_branch}}
+  - name: image-full-path-with-tag
+    value: quay.io/rh-ee-ksaha/test:{{source_branch}}
+  - name: deployment-manifest
+    value: https://raw.githubusercontent.com/koustavsaha/spring-boot-docker/master/TektonPipelines/Resources/deployment.yaml
+  workspaces:
+  - name: maven-settings
+    configmap:
+      name: maven-settings
+  - name: workspace
+    persistentvolumeclaim:
+      claimName: shared-workspace
+  - name: quay-cred
+    secret:
+      secretName: quay-secret
+  - name: empty-dir
+    emptyDir: {}
