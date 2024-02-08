@@ -6,7 +6,7 @@ metadata:
     pipelinesascode.tekton.dev/max-keep-runs: "5"
     pipelinesascode.tekton.dev/on-event: "[pull_request,push]"
     pipelinesascode.tekton.dev/on-target-branch: master
-    pipelinesascode.tekton.dev/pipeline: "https://raw.githubusercontent.com/koustavsaha/spring-boot-docker/master/TektonPipelines/Pipeline/pipeline-git-clone-build-push-deploy.yaml"
+    pipelinesascode.tekton.dev/pipeline: "https://raw.githubusercontent.com/koustavsaha/Tekton-pipeline-springboot/master/TektonPipelines/Pipeline/pipeline-git-clone-build-push-deploy.yaml"
   generateName: pipelinerun-git-clone-build-push-deploy-f
 spec:
   taskRunTemplate:
@@ -21,7 +21,7 @@ spec:
     - name: image-full-path-with-tag
       value: "quay.io/rh-ee-ksaha/test:{{ source_branch }}"
     - name: deployment-manifest
-      value: "https://raw.githubusercontent.com/koustavsaha/spring-boot-docker/master/TektonPipelines/Resources/deployment.yaml"
+      value: "https://raw.githubusercontent.com/koustavsaha/Tekton-pipeline-springboot/master/TektonPipelines/Resources/deployment.yaml"
   workspaces:
     - name: maven-settings
       configMap:
