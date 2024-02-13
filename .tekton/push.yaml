@@ -7,12 +7,12 @@ metadata:
     pipelinesascode.tekton.dev/on-event: "[push]"
     pipelinesascode.tekton.dev/on-target-branch: master
     pipelinesascode.tekton.dev/pipeline: "https://raw.githubusercontent.com/koustavsaha/Tekton-pipeline-springboot/master/TektonPipelines/Pipeline/pipeline-push.yaml"
-  generateName: pipelinerun-git-clone-build-push-deploy-f
+  generateName: pipelinerun-merge-
 spec:
   taskRunTemplate:
     serviceAccountName: pipeline
   pipelineRef:
-    name: pipeline-git-clone-build-push-deploy
+    name: pipeline-push
   params:
     - name: repo-url
       value: "{{ repo_url }}"

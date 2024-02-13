@@ -7,12 +7,12 @@ metadata:
     pipelinesascode.tekton.dev/on-event: "[pull_request]"
     pipelinesascode.tekton.dev/on-target-branch: master
     pipelinesascode.tekton.dev/pipeline: "https://raw.githubusercontent.com/koustavsaha/Tekton-pipeline-springboot/master/TektonPipelines/Pipeline/pipeline-pull-request.yaml"
-  generateName: pipelinerun-git-clone-build-push-deploy-f
+  generateName: pipelinerun-pull-request-
 spec:
   taskRunTemplate:
     serviceAccountName: pipeline
   pipelineRef:
-    name: pipeline-git-clone-build-push-deploy
+    name: pipeline-pull-request
   params:
     - name: repo-url
       value: "{{ repo_url }}"
