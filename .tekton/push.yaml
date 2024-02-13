@@ -4,9 +4,9 @@ metadata:
   annotations:
     pipelinesascode.tekton.dev/target-namespace: koustav-demo
     pipelinesascode.tekton.dev/max-keep-runs: "5"
-    pipelinesascode.tekton.dev/on-event: "[pull_request,push]"
+    pipelinesascode.tekton.dev/on-event: "[push]"
     pipelinesascode.tekton.dev/on-target-branch: master
-    pipelinesascode.tekton.dev/pipeline: "https://raw.githubusercontent.com/koustavsaha/Tekton-pipeline-springboot/master/TektonPipelines/Pipeline/pipeline-git-clone-build-push-deploy.yaml"
+    pipelinesascode.tekton.dev/pipeline: "https://raw.githubusercontent.com/koustavsaha/Tekton-pipeline-springboot/master/TektonPipelines/Pipeline/pipeline-push.yaml"
   generateName: pipelinerun-git-clone-build-push-deploy-f
 spec:
   taskRunTemplate:
