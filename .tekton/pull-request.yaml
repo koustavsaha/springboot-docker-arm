@@ -1,0 +1,34 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  annotations:
+    pipelinesascode.tekton.dev/target-namespace: koustav-demo
+    pipelinesascode.tekton.dev/max-keep-runs: "5"
+    pipelinesascode.tekton.dev/on-event: "[pull_request]"
+    pipelinesascode.tekton.dev/on-target-branch: master
+    pipelinesascode.tekton.dev/pipeline: "https://raw.githubusercontent.com/koustavsaha/Tekton-pipeline-springboot/master/TektonPipelines/Pipeline/pipeline-pull-request.yaml"
+  generateName: pipelinerun-git-clone-build-push-deploy-f
+spec:
+  taskRunTemplate:
+    serviceAccountName: pipeline
+  pipelineRef:
+    name: pipeline-git-clone-build-push-deploy
+  params:
+    - name: repo-url
+      value: "{{ repo_url }}"
+    - name: tag-name
+      value: "{{ source_branch }}"
+    - name: image-full-path-with-tag
+      value: "quay.io/rh-ee-ksaha/test:{{ source_branch }}"
+  workspaces:
+    - name: maven-settings
+      configMap:
+        name: maven-settings
+    - name: workspace
+      persistentVolumeClaim:
+        claimName: shared-workspace
+    - name: quay-cred
+      secret:
+        secretName: quay-secret
+    - name: empty-dir
+      emptyDir: {}
