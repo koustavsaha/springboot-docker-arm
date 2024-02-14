@@ -1,4 +1,4 @@
-## Package, Build Docker Image & Run Spring Boot Appg
+## Package, Build Docker Image & Run Spring Boot Appgs
 
 ### By Maven
 
