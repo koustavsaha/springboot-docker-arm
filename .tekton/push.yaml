@@ -17,9 +17,9 @@ spec:
     - name: repo-url
       value: "{{ repo_url }}"
     - name: tag-name
-      value: "{{ source_branch }}"
+      value: master
     - name: image-full-path-with-tag
-      value: "quay.io/rh-ee-ksaha/test:{{ source_branch }}"
+      value: "quay.io/rh-ee-ksaha/test:master"
     - name: deployment-manifest
       value: "https://raw.githubusercontent.com/koustavsaha/Tekton-pipeline-springboot/master/TektonPipelines/Resources/deployment.yaml"
   workspaces:
