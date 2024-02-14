@@ -17,7 +17,7 @@ spec:
     - name: repo-url
       value: "{{ repo_url }}"
     - name: tag-name
-      value: master
+      value: "{{ revision }}"
     - name: image-full-path-with-tag
       value: "quay.io/rh-ee-ksaha/test:master"
     - name: deployment-manifest
