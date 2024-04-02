@@ -20,8 +20,6 @@ spec:
       value: "{{ revision }}"
     - name: image-full-path-with-tag
       value: "quay.io/rh-ee-ksaha/test-arm-build:master"
-    - name: deployment-manifest
-      value: https://raw.githubusercontent.com/koustavsaha/springboot-docker-arm/master/k8s/deployment.yml
   workspaces:
     - name: maven-settings
       configMap:
