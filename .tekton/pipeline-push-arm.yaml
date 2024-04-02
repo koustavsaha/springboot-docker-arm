@@ -95,27 +95,17 @@ spec:
   # 5. Task - kubectl deploy
   - name: deploy
     taskRef:
-      resolver: hub
-      params:
-      - name: catalog
-        value: tekton-catalog-tasks
-      - name: type
-        value: artifact
-      - name: kind
-        value: task
-      - name: name
-        value: kubernetes-actions
-      - name: version
-        value: "0.2"
+      name: openshift-client
+      kind: ClusterTask
     runAfter:
     - buildah
     params:
       - name: script
         value: |
-          kubectl apply -f $(params.deployment-manifest)
+          oc apply -f $(params.deployment-manifest)
           echo "----------"
-          kubectl patch deployment spring-boot-docker -p '{"spec":{"template":{"spec":{"containers":[{"name":"myapp","image":"$(params.image-full-path-with-tag)"}]}}}}'
-          kubectl get deployment
+          oc patch deployment spring-boot-docker -p '{"spec":{"template":{"spec":{"containers":[{"name":"myapp","image":"$(params.image-full-path-with-tag)"}]}}}}'
+          oc get deployment
     workspaces:
       - name: kubeconfig-dir
         workspace: empty-dir
