@@ -6,22 +6,20 @@ metadata:
     pipelinesascode.tekton.dev/max-keep-runs: "5"
     pipelinesascode.tekton.dev/on-event: "[push]"
     pipelinesascode.tekton.dev/on-target-branch: master
-    pipelinesascode.tekton.dev/pipeline: "https://raw.githubusercontent.com/koustavsaha/Tekton-pipeline-springboot/master/TektonPipelines/Pipeline/pipeline-push.yaml"
-  generateName: pipelinerun-merge-
+    pipelinesascode.tekton.dev/pipeline: "pipeline-push-arm.yaml"
+  generateName: pipelinerun-push-arm-
 spec:
   taskRunTemplate:
     serviceAccountName: pipeline
   pipelineRef:
-    name: pipeline-push
+    name: pipeline-push-arm
   params:
     - name: repo-url
       value: "{{ repo_url }}"
     - name: tag-name
       value: "{{ revision }}"
     - name: image-full-path-with-tag
-      value: "quay.io/rh-ee-ksaha/test:master"
-    - name: deployment-manifest
-      value: "https://raw.githubusercontent.com/koustavsaha/Tekton-pipeline-springboot/master/TektonPipelines/Resources/deployment.yaml"
+      value: "quay.io/rh-ee-ksaha/test-arm-build:master"
   workspaces:
     - name: maven-settings
       configMap:
