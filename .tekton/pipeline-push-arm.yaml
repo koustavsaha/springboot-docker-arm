@@ -100,14 +100,12 @@ spec:
     runAfter:
     - buildah
     params:
-      - name: script
+      - name: SCRIPT
         value: |
-          oc apply -f $(params.deployment-manifest)
+          oc create --filename k8s/
           echo "----------"
           oc patch deployment spring-boot-docker -p '{"spec":{"template":{"spec":{"containers":[{"name":"myapp","image":"$(params.image-full-path-with-tag)"}]}}}}'
           oc get deployment
     workspaces:
-      - name: kubeconfig-dir
-        workspace: empty-dir
       - name: manifest-dir
-        workspace: empty-dir
+        workspace: workspace
