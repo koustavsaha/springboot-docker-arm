@@ -6,7 +6,7 @@ metadata:
     pipelinesascode.tekton.dev/max-keep-runs: "5"
     pipelinesascode.tekton.dev/on-event: "[push]"
     pipelinesascode.tekton.dev/on-target-branch: master
-    pipelinesascode.tekton.dev/pipeline: "pipeline-push-arm.yaml"
+    pipelinesascode.tekton.dev/pipeline: "./pipeline-push-arm.yaml"
   generateName: pipelinerun-push-arm-
 spec:
   taskRunTemplate:
