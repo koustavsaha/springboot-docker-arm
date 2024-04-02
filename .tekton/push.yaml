@@ -19,7 +19,7 @@ spec:
     - name: tag-name
       value: "{{ revision }}"
     - name: image-full-path-with-tag
-      value: "quay.io/rh-ee-ksaha/test-arm-build:master"
+      value: "quay.io/rh-ee-ksaha/test-arm-build:check"
   workspaces:
     - name: maven-settings
       configMap:
