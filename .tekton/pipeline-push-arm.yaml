@@ -92,3 +92,32 @@ spec:
       - name: dockerconfig
         workspace: quay-cred
 
+  # 5. Task - kubectl deploy
+  - name: deploy
+    taskRef:
+      resolver: hub
+      params:
+      - name: catalog
+        value: tekton-catalog-tasks
+      - name: type
+        value: artifact
+      - name: kind
+        value: task
+      - name: name
+        value: kubernetes-actions
+      - name: version
+        value: "0.2"
+    runAfter:
+    - buildah
+    params:
+      - name: script
+        value: |
+          kubectl apply -f $(params.deployment-manifest)
+          echo "----------"
+          kubectl patch deployment spring-boot-docker -p '{"spec":{"template":{"spec":{"containers":[{"name":"myapp","image":"$(params.image-full-path-with-tag)"}]}}}}'
+          kubectl get deployment
+    workspaces:
+      - name: kubeconfig-dir
+        workspace: empty-dir
+      - name: manifest-dir
+        workspace: empty-dir
