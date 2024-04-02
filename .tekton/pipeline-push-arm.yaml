@@ -102,7 +102,7 @@ spec:
     params:
       - name: SCRIPT
         value: |
-          oc create --filename k8s/
+          oc apply --filename k8s/
           echo "----------"
           oc patch deployment spring-boot-docker -p '{"spec":{"template":{"spec":{"containers":[{"name":"myapp","image":"$(params.image-full-path-with-tag)"}]}}}}'
           oc get deployment
