@@ -103,7 +103,7 @@ spec:
       - name: SCRIPT
         value: |
           # oc apply --filename k8s/
-          sed 's|image: quay.io/rh-ee-ksaha/test-arm-build:master|$(params.image-full-path-with-tag)|g' k8s/deployment.yml | oc apply --filename -
+          sed 's|image: quay.io/rh-ee-ksaha/test-arm-build:master|image: $(params.image-full-path-with-tag)|g' k8s/deployment.yml | oc apply --filename -
           echo "----------"
           # oc patch deployment spring-boot-docker -p '{"spec":{"template":{"spec":{"containers":[{"name":"myapp","image":"$(params.image-full-path-with-tag)"}]}}}}'
           oc get deployment
