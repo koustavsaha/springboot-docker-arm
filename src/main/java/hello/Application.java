@@ -11,7 +11,7 @@ public class Application {
 
     @RequestMapping("/")
     public String home() {
-        return "<h1>Hello Docker World: building and deploying in Openshift Container Platform on Arm, v1.1.0</h1>";
+        return "<h1>Hello k8s World: building and deploying in Openshift Container Platform on Arm, v1.1.0</h1>";
     }
 
     public static void main(String[] args) {
