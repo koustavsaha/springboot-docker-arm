@@ -50,7 +50,7 @@ spec:
       workspace: workspace
 
 
-  # 3. Task - maven build
+  # 2. Task - maven build
   - name: maven-build
     taskRef:
       name: maven
@@ -70,7 +70,7 @@ spec:
     - name: source
       workspace: workspace
 
-  # 4. Task - buildah build & push to quay
+  # 3. Task - buildah build & push to quay
   - name: buildah
     taskRef:
       name: buildah
@@ -92,7 +92,7 @@ spec:
       - name: dockerconfig
         workspace: quay-cred
 
-  # 5. Task - kubectl deploy
+  # 4. Task - kubectl deploy
   - name: deploy
     taskRef:
       name: openshift-client
